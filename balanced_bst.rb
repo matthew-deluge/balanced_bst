@@ -43,14 +43,13 @@ class Tree
     root
   end
 
-  def min_child(node) # finds the lowest ancestor of a given node
+  def min_child(node)
     current = node
     current = current.left until current.left.nil?
-    return current
+    current
   end
 
   def delete(value, root = @root)
-    # returns if finds a nil
     return root if root.nil?
 
     # checks to search in the right or left tree
@@ -59,7 +58,7 @@ class Tree
     elsif value > root.data
       root.right = delete(value, root.right)
     # code if node's data is the value to be deleted
-    else 
+    else
       if root.left.nil? #returns right child to attach to parent of deleted node
         temp = root.right
         root = nil
@@ -69,13 +68,13 @@ class Tree
         root = nil
         return temp
       else
-      # code for if the node to be deleted has two children
-        temp = min_child(root.right) # get the lowest ancestor of the deleted node
-        root.data = temp.data #replace the data in the node with the lowest ancestors data
-        root.right = delete(temp.data, root.right) #find and delete the lowest ancestor
-      end 
+        # code for if the node to be deleted has two children
+        temp = min_child(root.right)
+        root.data = temp.data
+        root.right = delete(temp.data, root.right)
+      end
     end
-    return root
+    root
   end
 
   def find(value, root = @root)
@@ -106,7 +105,7 @@ class Tree
       array.push(root.data)
       array = in_order(root.right, array)
     end
-  array
+    array
   end
 
   def pre_order(root = @root, array = [])
@@ -115,7 +114,7 @@ class Tree
       array = pre_order(root.left, array)
       array = pre_order(root.right, array)
     end
-  array
+    array
   end
 
   def post_order(root = @root, array = [])
@@ -159,14 +158,15 @@ class Tree
     return true if node.nil?
 
     return true if (height(root.left) - height(root.right)).abs < 1&&balanced?(node.right)&&balanced?(node.left)
-    return false
+
+    false
   end
 
   def rebalance
     array = level_order
     @root = build_tree(array)
   end
-      
+
 end
 
 
