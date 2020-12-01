@@ -10,7 +10,7 @@ A Balanced Binary Search Tree program made in Ruby for [The Odin Project](https:
 - **#min_child(node):** Finds the lowest (value-wise, not level-wise) ancestor of a given node
 - **#delete(value):** Deletes the node with the passed value, if found
 - **#find(value):** Returns the node with the passed value, if found 
-- **#level_order:** Returns an array of the nodes in [level order] (https://www.geeksforgeeks.org/level-order-tree-traversal/)
+- **#level_order:** Returns an array of the nodes in [level order](https://www.geeksforgeeks.org/level-order-tree-traversal/)
 - **#in_order, pre_order, post_order:** Return arrays of the nodes in ["in order", "pre order", and "post order"](https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/), respectively.
 - **#height:** Returns the height of the tree, or the height of a passed node
 - **#depth(node):** Returns the depth of a passed node (or how many levels it is from the root node)
